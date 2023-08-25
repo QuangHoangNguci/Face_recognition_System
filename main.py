@@ -106,6 +106,28 @@ class Face_Recognition_System:
         data_img_button_1_1 = Button(bg_img, text="Dataset",cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
         data_img_button_1_1.place(x=650 ,y=730, width=180, height=40)
 
+        # Button 7 - Developers
+        dev_img_button = Image.open(r"/Users/QuangHoang/Documents/Face_recognition_system/Images_GUI/dev.jpg")
+        dev_img_button = dev_img_button.resize((180, 180), Image.LANCZOS)
+        self.dev_button = ImageTk.PhotoImage(dev_img_button)
+
+        dev_img_button_1 = Button(bg_img, image=self.dev_button, cursor="hand2")
+        dev_img_button_1.place(x= 1050, y= 550, width=180, height=180)
+
+        dev_img_button_1_1 = Button(bg_img, text="Developers", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        dev_img_button_1_1.place(x=1050, y=730, width=180, height=40)
+
+        # Button 8 - Exit
+        exit_img_button = Image.open(r"/Users/QuangHoang/Documents/Face_recognition_system/Images_GUI/exi.jpg")
+        exit_img_button = exit_img_button.resize((180, 180), Image.LANCZOS)
+        self.exit_button = ImageTk.PhotoImage(exit_img_button)
+
+        exit_button_1 = Button(bg_img, image=self.exit_button, cursor="hand2")
+        exit_button_1.place(x=1450, y=550, width=180, height=180)
+
+        exit_button_1_1 = Button(bg_img, text="Exit", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        exit_button_1_1.place(x=1450, y=730, width=180, height=40)
+
 
 
 
