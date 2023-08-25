@@ -2,6 +2,7 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 import os
+from tkinter import messagebox
 
 import PIL
 
@@ -45,10 +46,10 @@ class Face_Recognition_System:
         std_img_button = std_img_button.resize((180, 180), Image.LANCZOS)
         self.std_img1 = ImageTk.PhotoImage(std_img_button)
 
-        std_button_1 = Button(bg_img, image= self.std_img1, cursor="hand2")
+        std_button_1 = Button(bg_img,command= self.student_pannels ,image= self.std_img1, cursor="hand2")
         std_button_1.place(x=250, y=170, width=180, height=180)
 
-        std_button_1_1 =Button(bg_img, text="Sinh viên", cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        std_button_1_1 =Button(bg_img,command= self.student_pannels , text="Sinh viên", cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         std_button_1_1.place(x=250, y=350, width=180, height=40)
 
         #button 2 - Nhận diện
@@ -56,7 +57,7 @@ class Face_Recognition_System:
         dec_img_button = dec_img_button.resize((180, 180), Image.LANCZOS)
         self.dec_img_1 = ImageTk.PhotoImage(dec_img_button)
 
-        dec_button_1 = Button(bg_img, image= self.dec_img_1, cursor="hand2")
+        dec_button_1 = Button(bg_img,command=self.face_rec, image= self.dec_img_1, cursor="hand2")
         dec_button_1.place(x=650, y=170, width=180, height=180)
 
         dec_button_1_1 =Button(bg_img, text="Nhận Diện", cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
@@ -67,10 +68,10 @@ class Face_Recognition_System:
         att_img_button = att_img_button.resize((180, 180), Image.LANCZOS)
         self.att_img_1 = ImageTk.PhotoImage(att_img_button)
 
-        att_button_1 = Button(bg_img, image=self.att_img_1, cursor="hand2")
+        att_button_1 = Button(bg_img,command= self.attendance_pannels ,image=self.att_img_1, cursor="hand2")
         att_button_1.place(x=1050, y=170, width=180, height=180)
 
-        att_button_1_1 = Button(bg_img, text="Điểm Danh",font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        att_button_1_1 = Button(bg_img,command= self.attendance_pannels , text="Điểm Danh",font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
         att_button_1_1.place(x=1050, y= 350, height=40, width=180)
 
         #button 4 - Hỗ trợ
@@ -78,10 +79,10 @@ class Face_Recognition_System:
         sup_img_button = sup_img_button.resize((180, 180), Image.LANCZOS)
         self.sup_img_1 = ImageTk.PhotoImage(sup_img_button)
 
-        sup_button_1 = Button(bg_img, image=self.sup_img_1, cursor="hand2")
+        sup_button_1 = Button(bg_img,command= self.help_support, image=self.sup_img_1, cursor="hand2")
         sup_button_1.place(x=1450, y=170, width=180, height=180)
 
-        sup_button_1_1 = Button(bg_img, text="Hỗ trợ", cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
+        sup_button_1_1 = Button(bg_img,command= self.help_support, text="Hỗ trợ", cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
         sup_button_1_1.place(x=1450, y=350, width=180, height=40)
     # Tạo buttons ở hàng 2
         # Button 5 - tải data
@@ -89,10 +90,10 @@ class Face_Recognition_System:
         load_img_button = load_img_button.resize((180, 180), Image.LANCZOS)
         self.load_data_button = ImageTk.PhotoImage(load_img_button)
 
-        load_img_button_1 = Button(bg_img, image=self.load_data_button, cursor="hand2")
+        load_img_button_1 = Button(bg_img, command=self.train_pannels, image=self.load_data_button, cursor="hand2")
         load_img_button_1.place(x=250, y=550, height=180, width=180)
 
-        load_img_button_1_1 = Button(bg_img, text="Tải Data", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        load_img_button_1_1 = Button(bg_img, command=self.train_pannels, text="Tải Data", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
         load_img_button_1_1.place(x=250, y=730, width=180, height=40)
 
         # Button 6 - Dataset
@@ -100,10 +101,10 @@ class Face_Recognition_System:
         data_img_button = data_img_button.resize((180, 180), Image.LANCZOS)
         self.data_button = ImageTk.PhotoImage(data_img_button)
 
-        data_img_button_1 = Button(bg_img, image= self.data_button, cursor="hand2")
+        data_img_button_1 = Button(bg_img, command= self.open_img, image= self.data_button, cursor="hand2")
         data_img_button_1.place(x=650, y=550, width=180, height=180)
 
-        data_img_button_1_1 = Button(bg_img, text="Dataset",cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
+        data_img_button_1_1 = Button(bg_img,command= self.open_img, text="Dataset",cursor="hand2", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180)
         data_img_button_1_1.place(x=650 ,y=730, width=180, height=40)
 
         # Button 7 - Developers
@@ -111,10 +112,10 @@ class Face_Recognition_System:
         dev_img_button = dev_img_button.resize((180, 180), Image.LANCZOS)
         self.dev_button = ImageTk.PhotoImage(dev_img_button)
 
-        dev_img_button_1 = Button(bg_img, image=self.dev_button, cursor="hand2")
+        dev_img_button_1 = Button(bg_img, command=self.develop_pannels, image=self.dev_button, cursor="hand2")
         dev_img_button_1.place(x= 1050, y= 550, width=180, height=180)
 
-        dev_img_button_1_1 = Button(bg_img, text="Developers", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        dev_img_button_1_1 = Button(bg_img,command=self.develop_pannels, text="Developers", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
         dev_img_button_1_1.place(x=1050, y=730, width=180, height=40)
 
         # Button 8 - Exit
@@ -122,11 +123,45 @@ class Face_Recognition_System:
         exit_img_button = exit_img_button.resize((180, 180), Image.LANCZOS)
         self.exit_button = ImageTk.PhotoImage(exit_img_button)
 
-        exit_button_1 = Button(bg_img, image=self.exit_button, cursor="hand2")
+        exit_button_1 = Button(bg_img,command=self.Close, image=self.exit_button, cursor="hand2")
         exit_button_1.place(x=1450, y=550, width=180, height=180)
 
-        exit_button_1_1 = Button(bg_img, text="Exit", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
+        exit_button_1_1 = Button(bg_img,command=self.Close, text="Exit", font=("tahoma",15,"bold"),bg="white",fg="navyblue", height=40, width=180, cursor="hand2")
         exit_button_1_1.place(x=1450, y=730, width=180, height=40)
+
+    #***********************************************************************************************************************#
+    #============================ Functions for Button==================================================#
+    def student_pannels(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def train_pannels(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def face_rec(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def attendance_pannels(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def develop_pannels(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def help_support(self):
+        self.new_window = Toplevel(self.root)
+        pass
+
+    def open_img(self):
+        os.startfile("data_img")
+
+    def Close(self):
+        result = messagebox.askquestion("Exit", "Bạn có muốn thoát chương trình?")
+        if result == "yes":
+            self.root.destroy()
 
 
 
